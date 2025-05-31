@@ -81,17 +81,19 @@ Organize your workspace as follows:
 ```
 ros2_ws/
 ├── src/
-│   └── my_package/
-│       ├── my_package/
+│   └── my_robot_controller/
+│       ├── launch/
+│       │   └── start_all_nodes.py          # launch file to start nodes together
+│       ├── my_robot_controller/
 │       │   ├── __init__.py
-│       │   ├── publisher_node.py
-│       │   ├── subscriber_node.py
-│       │   ├── service_server.py
-│       │   ├── service_client.py
-│       │   ├── action_server.py
-│       │   └── action_client.py
-│       ├── package.xml
-│       └── setup.py
+│       │   ├── number_publisher.py         # publisher node with QoS
+│       │   ├── number_subscriber.py        # subscriber node with QoS
+│       │   ├── my_first_node.py             # other nodes
+│       │   ├── pose_subscriber.py
+│       │   ├── draw_circle.py
+│       │   └── number_subscriber.py        # subscriber node
+│       ├── setup.py
+│       └── package.xml
 ├── build/
 ├── install/
 └── log/
@@ -160,6 +162,29 @@ def main(args=None):
     rclpy.shutdown()
 
 ```
+
+## Launching Nodes Using Launch File
+
+You can launch all your publisher and subscriber nodes together using the launch file:
+
+```bash
+ros2 launch my_robot_controller start_all_nodes.py
+```
+
+### Quality of Service (QoS)
+
+Both the publisher and subscriber nodes now use a custom QoS profile to ensure reliable message delivery:
+
+```python
+from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
+
+qos_profile = QoSProfile(
+    reliability=ReliabilityPolicy.RELIABLE,
+    durability=DurabilityPolicy.VOLATILE,
+    depth=10
+)
+```
+
 ## Useful Commands
 
 - Update and upgrade system:
