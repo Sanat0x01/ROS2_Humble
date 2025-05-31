@@ -265,6 +265,11 @@ qos_profile = QoSProfile(
   ros2 service call /service_name std_srvs/srv/Empty
   ```
 
+  ## Additional files
+
+📄 [ROS 1 vs ROS 2 - Key Differences](./ROS1_VS_ROS2.md)
+
+
 ## Additional Resources
 
 - (https://docs.ros.org/en/humble/index.html)
