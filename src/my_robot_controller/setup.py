@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch', ['launch/start_all_nodes.py']),
+
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,6 +26,7 @@ setup(
             "pose_subscriber = my_robot_controller.pose_subscriber:main",
             "number_publisher = my_robot_controller.number_publisher:main",
             "number_subscriber = my_robot_controller.number_subscriber:main",
+
         ],
     },
 )

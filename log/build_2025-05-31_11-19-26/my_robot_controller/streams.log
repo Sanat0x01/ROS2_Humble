@@ -1,0 +1,33 @@
+[0.331s] Invoking command in '/home/sanat/ros2_ws/src/my_robot_controller': PYTHONPATH=/home/sanat/ros2_ws/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_controller build --build-base /home/sanat/ros2_ws/build/my_robot_controller/build install --record /home/sanat/ros2_ws/build/my_robot_controller/install.log --single-version-externally-managed install_data
+[0.451s] running egg_info
+[0.452s] writing ../../build/my_robot_controller/my_robot_controller.egg-info/PKG-INFO
+[0.454s] writing dependency_links to ../../build/my_robot_controller/my_robot_controller.egg-info/dependency_links.txt
+[0.454s] writing entry points to ../../build/my_robot_controller/my_robot_controller.egg-info/entry_points.txt
+[0.454s] writing requirements to ../../build/my_robot_controller/my_robot_controller.egg-info/requires.txt
+[0.454s] writing top-level names to ../../build/my_robot_controller/my_robot_controller.egg-info/top_level.txt
+[0.455s] reading manifest file '../../build/my_robot_controller/my_robot_controller.egg-info/SOURCES.txt'
+[0.457s] writing manifest file '../../build/my_robot_controller/my_robot_controller.egg-info/SOURCES.txt'
+[0.457s] running build
+[0.457s] running build_py
+[0.458s] copying my_robot_controller/number_publisher.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.458s] copying my_robot_controller/number_subscriber.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.458s] running install
+[0.459s] running install_lib
+[0.459s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/number_publisher.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.459s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/number_subscriber.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.460s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/number_publisher.py to number_publisher.cpython-310.pyc
+[0.460s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/number_subscriber.py to number_subscriber.cpython-310.pyc
+[0.460s] running install_data
+[0.460s] running install_egg_info
+[0.460s] Sorry: TabError: inconsistent use of tabs and spaces in indentation (number_publisher.py, line 16)
+[0.460s] Sorry: IndentationError: unindent does not match any outer indentation level (number_subscriber.py, line 17)
+[0.461s] removing '/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller-0.0.0-py3.10.egg-info' (and everything under it)
+[0.461s] Copying ../../build/my_robot_controller/my_robot_controller.egg-info to /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller-0.0.0-py3.10.egg-info
+[0.462s] running install_scripts
+[0.473s] Installing draw_circle script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.473s] Installing number_publisher script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.473s] Installing number_subscriber script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.473s] Installing pose_subscriber script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.473s] Installing test_node script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.473s] writing list of installed files to '/home/sanat/ros2_ws/build/my_robot_controller/install.log'
+[0.485s] Invoked command in '/home/sanat/ros2_ws/src/my_robot_controller' returned '0': PYTHONPATH=/home/sanat/ros2_ws/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_controller build --build-base /home/sanat/ros2_ws/build/my_robot_controller/build install --record /home/sanat/ros2_ws/build/my_robot_controller/install.log --single-version-externally-managed install_data

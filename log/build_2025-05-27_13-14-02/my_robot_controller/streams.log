@@ -1,0 +1,50 @@
+[0.400s] Invoking command in '/home/sanat/ros2_ws/build/my_robot_controller': PYTHONPATH=/home/sanat/ros2_ws/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/sanat/ros2_ws/build/my_robot_controller/build
+[0.582s] running develop
+[0.684s] Removing /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my-robot-controller.egg-link (link to .)
+[0.702s] Invoked command in '/home/sanat/ros2_ws/build/my_robot_controller' returned '0': PYTHONPATH=/home/sanat/ros2_ws/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/sanat/ros2_ws/build/my_robot_controller/build
+[0.703s] Invoking command in '/home/sanat/ros2_ws/src/my_robot_controller': PYTHONPATH=/home/sanat/ros2_ws/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_controller build --build-base /home/sanat/ros2_ws/build/my_robot_controller/build install --record /home/sanat/ros2_ws/build/my_robot_controller/install.log --single-version-externally-managed install_data --force
+[0.850s] running egg_info
+[0.851s] writing ../../build/my_robot_controller/my_robot_controller.egg-info/PKG-INFO
+[0.851s] writing dependency_links to ../../build/my_robot_controller/my_robot_controller.egg-info/dependency_links.txt
+[0.851s] writing entry points to ../../build/my_robot_controller/my_robot_controller.egg-info/entry_points.txt
+[0.851s] writing requirements to ../../build/my_robot_controller/my_robot_controller.egg-info/requires.txt
+[0.851s] writing top-level names to ../../build/my_robot_controller/my_robot_controller.egg-info/top_level.txt
+[0.852s] reading manifest file '../../build/my_robot_controller/my_robot_controller.egg-info/SOURCES.txt'
+[0.853s] writing manifest file '../../build/my_robot_controller/my_robot_controller.egg-info/SOURCES.txt'
+[0.853s] running build
+[0.853s] running build_py
+[0.854s] copying my_robot_controller/pose_subscriber.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.854s] copying my_robot_controller/number_publisher.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.854s] copying my_robot_controller/draw_circle.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.854s] copying my_robot_controller/my_first_node.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.854s] copying my_robot_controller/number_subscriber.py -> /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller
+[0.854s] running install
+[0.854s] running install_lib
+[0.855s] creating /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/pose_subscriber.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/number_publisher.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/draw_circle.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/my_first_node.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/__init__.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] copying /home/sanat/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/number_subscriber.py -> /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller
+[0.855s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/pose_subscriber.py to pose_subscriber.cpython-310.pyc
+[0.855s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/number_publisher.py to number_publisher.cpython-310.pyc
+[0.856s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/draw_circle.py to draw_circle.cpython-310.pyc
+[0.856s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/my_first_node.py to my_first_node.cpython-310.pyc
+[0.856s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/__init__.py to __init__.cpython-310.pyc
+[0.856s] byte-compiling /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller/number_subscriber.py to number_subscriber.cpython-310.pyc
+[0.856s] running install_data
+[0.856s] copying resource/my_robot_controller -> /home/sanat/ros2_ws/install/my_robot_controller/share/ament_index/resource_index/packages
+[0.857s] copying package.xml -> /home/sanat/ros2_ws/install/my_robot_controller/share/my_robot_controller
+[0.857s] creating /home/sanat/ros2_ws/install/my_robot_controller/share/my_robot_controller/launch
+[0.857s] copying launch/start_all_nodes.py -> /home/sanat/ros2_ws/install/my_robot_controller/share/my_robot_controller/launch
+[0.858s] running install_egg_info
+[0.859s] Copying ../../build/my_robot_controller/my_robot_controller.egg-info to /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller-0.0.0-py3.10.egg-info
+[0.859s] running install_scripts
+[0.874s] Installing draw_circle script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.874s] Installing number_publisher script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.874s] Installing number_subscriber script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.875s] Installing pose_subscriber script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.875s] Installing test_node script to /home/sanat/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[0.875s] writing list of installed files to '/home/sanat/ros2_ws/build/my_robot_controller/install.log'
+[0.891s] Invoked command in '/home/sanat/ros2_ws/src/my_robot_controller' returned '0': PYTHONPATH=/home/sanat/ros2_ws/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_robot_controller build --build-base /home/sanat/ros2_ws/build/my_robot_controller/build install --record /home/sanat/ros2_ws/build/my_robot_controller/install.log --single-version-externally-managed install_data --force
