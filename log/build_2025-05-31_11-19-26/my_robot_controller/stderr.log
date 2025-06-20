@@ -1,2 +1,0 @@
-Sorry: TabError: inconsistent use of tabs and spaces in indentation (number_publisher.py, line 16)
-Sorry: IndentationError: unindent does not match any outer indentation level (number_subscriber.py, line 17)

@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: my-robot-controller
 Version: 0.0.0
-Summary: TODO: Package description
+Summary: 4-wheeled robot controller with Gazebo simulation
 Home-page: UNKNOWN
 Maintainer: sanat
 Maintainer-email: ec24b1069@iiitdm.ac.in
-License: TODO: License declaration
+License: MIT
 Platform: UNKNOWN
 
 UNKNOWN

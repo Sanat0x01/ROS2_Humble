@@ -13,6 +13,7 @@
 /home/sanat/ros2_ws/install/my_robot_controller/share/ament_index/resource_index/packages/my_robot_controller
 /home/sanat/ros2_ws/install/my_robot_controller/share/my_robot_controller/package.xml
 /home/sanat/ros2_ws/install/my_robot_controller/share/my_robot_controller/launch/start_all_nodes.py
+/home/sanat/ros2_ws/install/my_robot_controller/share/my_robot_controller/urdf
 /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller-0.0.0-py3.10.egg-info/entry_points.txt
 /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller-0.0.0-py3.10.egg-info/top_level.txt
 /home/sanat/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages/my_robot_controller-0.0.0-py3.10.egg-info/requires.txt
