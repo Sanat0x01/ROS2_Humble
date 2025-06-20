@@ -81,22 +81,33 @@ Organize your workspace as follows:
 ```
 ros2_ws/
 ├── src/
-│   └── my_robot_controller/
-│       ├── launch/
-│       │   └── start_all_nodes.py          # launch file to start nodes together
-│       ├── my_robot_controller/
-│       │   ├── __init__.py
-│       │   ├── number_publisher.py         # publisher node with QoS
-│       │   ├── number_subscriber.py        # subscriber node with QoS
-│       │   ├── my_first_node.py             # other nodes
-│       │   ├── pose_subscriber.py
-│       │   ├── draw_circle.py
-│       │   └── number_subscriber.py        # subscriber node
-│       ├── setup.py
-│       └── package.xml
-├── build/
-├── install/
-└── log/
+│   ├── my_robot_controller/                 # ROS 2 Python package with custom nodes
+│   │   ├── launch/
+│   │   │   └── start_all_nodes.py           # Launch all controller nodes
+│   │   ├── my_robot_controller/
+│   │   │   ├── __init__.py
+│   │   │   ├── my_first_node.py             # Basic custom node
+│   │   │   ├── number_publisher.py          # Publishes numbers (QoS enabled)
+│   │   │   ├── number_subscriber.py         # Subscribes to numbers (QoS enabled)
+│   │   │   ├── pose_subscriber.py           # Subscribes to /pose topic
+│   │   │   └── draw_circle.py               # Publishes circular movement
+│   │   ├── setup.py
+│   │   └── package.xml
+│
+│   ├── 4wd_robot_sim/                       # Simulation package: Gazebo + RViz + URDF
+│   │   ├── launch/
+│   │   ├── urdf/                            # 4WD robot with camera & LIDAR
+│   │   ├── obstacle_stop/                   # Node for obstacle avoidance using LIDAR
+│   │   ├── rviz/, worlds/, ...
+│   │   ├── setup.py, package.xml, ...
+│
+│   └── 4wd_robot_control/                   # Control package (modular logic)
+│       ├── 4wd_robot_control/
+│       ├── setup.py, package.xml, ...
+│
+├── build/                                   # colcon build files (auto-generated)
+├── install/                                 # colcon install (auto-generated)
+└── log/                                     # Build logs
 ```
 ## Question: Create a publisher node that sends a number, and a subscriber node that receives this number, calculates its square, and displays the result in the terminal.
 
