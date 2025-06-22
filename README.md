@@ -280,6 +280,8 @@ qos_profile = QoSProfile(
 
 📄 [ROS 1 vs ROS 2 - Key Differences](./ROS1_VS_ROS2.md)
 
+📄 [Learnings in Simulation of 4WD robot.](./Simulation_learnings.md)
+
 
 ## Additional Resources
 
