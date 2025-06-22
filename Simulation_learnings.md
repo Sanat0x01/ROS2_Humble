@@ -265,6 +265,11 @@ Usually done in the launch file using:
 
 ```
 Node(
+  package='gazebo_ros',
+  executable='spawn_entity.py',
+  arguments=['-topic', 'robot_description', '-entity', 'my_robot'],
+)
+
 ```
 
 This takes your robot description from `/robot_description` and places it in the Gazebo world.
