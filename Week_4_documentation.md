@@ -1,62 +1,94 @@
-Week 4 Documentation: Orange Cone Detection using OpenCV and YOLO
+# 🟠 Week 4: Orange Cone Detection using OpenCV and YOLO
 
-🔶 Task Overview
-================\
-Detect an orange cone or box inside a Gazebo world using the robot's camera. The goal is to use OpenCV (and optionally YOLO) to detect the object and potentially control robot behavior based on this detection.
+## 🔶 Task Overview
 
-📌 Steps Followed
-=================\
-1\. Updated the Gazebo world (`custom_world.sdf`) and added an orange cone using cylinder geometry.\
-2\. Ensured robot camera is mounted and working (publishing to `/camera/image_raw`).\
-3\. Wrote a ROS 2 node (`orange_detector.py`) using OpenCV that:\
-- Subscribes to camera feed.\
-- Converts ROS image to OpenCV format via `cv_bridge`.\
-- Converts BGR to HSV and applies color threshold to detect orange regions.\
-- Draws contours and finds bounding box around the detected orange object.\
-4\. Tested detection accuracy in Gazebo with varying lighting and cone positions.\
-5\. (Optional) Tested YOLOv8 with `yolov8n.pt` weights for object detection (for learning).
+Detect an orange cone or box inside a Gazebo world using the robot's camera. The goal is to use OpenCV (and optionally YOLOv8) to detect the object and control robot behavior based on the detection.
 
-🟠 OpenCV-based Detection
-=========================\
-Pros:\
-- Simple and fast for color-based detection.\
-- Doesn't require training or labeled data.\
-- Works well for objects with unique and vibrant colors like orange.
+---
 
-Cons:\
-- Not robust to lighting changes and shadows.\
-- May fail if the object's color blends with the environment.\
+## 📌 Steps Followed
+
+1. **Updated the Gazebo world**  
+   - Modified `worlds/custom_world.sdf` to add an orange cone using cylinder geometry.
+
+2. **Configured Robot Camera**  
+   - Verified that the robot’s camera is properly mounted in the URDF/XACRO.  
+   - Confirmed image stream is available on `/camera/image_raw`.
+
+3. **Implemented OpenCV Detection Node** (`orange_detector.py`)  
+   - Subscribes to the camera feed.  
+   - Converts ROS image to OpenCV format using `cv_bridge`.  
+   - Converts image from BGR to HSV color space.  
+   - Applies orange color mask using HSV thresholds.  
+   - Finds contours and draws a bounding box around detected orange region.
+
+4. **Tested Detection in Simulation**  
+   - Moved cone to various positions and lighting setups in Gazebo.  
+   - Verified bounding box accuracy and detection responsiveness.
+
+5. **(Optional)**: Integrated YOLOv8 (with `yolov8n.pt`)  
+   - Used pretrained weights to test object detection pipeline.  
+   - Compared accuracy and speed against OpenCV.
+
+---
+
+## 🟠 OpenCV-based Detection
+
+### ✅ Pros
+
+- Fast and lightweight.
+- No training or dataset required.
+- Easy to implement using HSV color filtering.
+- Works well for vibrant and unique colors like orange.
+
+### ❌ Cons
+
+- Sensitive to lighting and shadows.
+- Can produce false positives if background has similar colors.
 - Cannot distinguish between multiple similar-colored objects.
 
-🔍 YOLOv8-based Detection
-=========================\
-Pros:\
-- Very accurate and robust.\
-- Can detect multiple objects with labels, even in complex environments.\
-- Pretrained models available.
+---
 
-Cons:\
-- Requires labeled dataset for cone if not present in default classes.\
-- Heavier than OpenCV; real-time performance depends on hardware.\
-- Integration with ROS requires additional setup (e.g., image conversion, topic handling).
+## 🔍 YOLOv8-based Detection
 
-📚 Learnings Summary
-====================
+### ✅ Pros
 
--   - HSV Color Space is better for color detection than RGB.
+- High accuracy and robustness.
+- Can detect and classify multiple object types.
+- Pretrained models (e.g., `yolov8n.pt`) available.
 
--   - OpenCV is ideal for simple, color-based tasks; no training required.
+### ❌ Cons
 
--   - Gazebo camera needs proper resolution, pose, and FOV for effective detection.
+- May require training for cones if not present in default classes.
+- Heavier compute load; may lag on CPU.
+- More complex ROS integration (requires topic remapping, preprocessing, etc.).
 
--   - cv_bridge is essential for ROS + OpenCV image processing.
+---
 
--   - YOLOv8 is powerful but needs training for custom objects like cones.
+## 📚 Learnings Summary
 
--   - Real-time detection (YOLO) on CPU may lag; optimize frame size and rate.
+- HSV color space is better suited for color detection than RGB.
+- `cv_bridge` is critical for converting ROS images into OpenCV format.
+- OpenCV is best for lightweight, single-color detection tasks.
+- YOLO is better for multi-class, high-accuracy needs.
+- Simulation lighting and camera pose/FOV greatly affect detection.
+- YOLO inference should be optimized for CPU/GPU to ensure real-time performance.
+- ROS 2 nodes must be configured with compatible QoS and topic names for stable operation.
+- Always test detection under different conditions to ensure robustness.
 
--   - Lighting in Gazebo significantly affects detection performance.
+---
 
--   - ROS 2 nodes must match QoS and topic/message formats for smooth communication.
+## 📂 Related Files
 
-h1 { color: #365f91; line-height: 115%; text-align: left; page-break-inside: avoid; orphans: 2; widows: 2; margin-top: 0.33in; margin-bottom: 0in; direction: ltr; background: transparent; page-break-after: avoid }h1.western { font-family: "Calibri", serif; font-size: 14pt; font-weight: bold }h1.cjk { font-family: "ＭＳ ゴシック"; font-size: 14pt; font-weight: bold }h1.ctl { font-family: ; font-size: 14pt; font-weight: bold }p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.08in; direction: ltr; background: transparent }
+- `launch/bringup_launch.py` – Launches Gazebo + robot + camera + detection node.
+- `orange_detector.py` – Python ROS 2 node for OpenCV-based detection.
+- `worlds/custom_world.sdf` – Custom Gazebo world with cone.
+
+---
+
+## ✅ Future Improvements
+
+- Add YOLO training pipeline for custom cone dataset.
+- Combine color + shape filtering for better OpenCV performance.
+- Deploy detection-based navigation (e.g., stop at cone, avoid, etc.).
+
