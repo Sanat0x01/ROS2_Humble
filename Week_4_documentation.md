@@ -59,3 +59,4 @@ Cons:\
 
 -   - ROS 2 nodes must match QoS and topic/message formats for smooth communication.
 
+h1 { color: #365f91; line-height: 115%; text-align: left; page-break-inside: avoid; orphans: 2; widows: 2; margin-top: 0.33in; margin-bottom: 0in; direction: ltr; background: transparent; page-break-after: avoid }h1.western { font-family: "Calibri", serif; font-size: 14pt; font-weight: bold }h1.cjk { font-family: "ＭＳ ゴシック"; font-size: 14pt; font-weight: bold }h1.ctl { font-family: ; font-size: 14pt; font-weight: bold }p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.08in; direction: ltr; background: transparent }
