@@ -3,10 +3,21 @@
 <package format="3">
   <name>4wd_robot_sim</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>4WD robot simulation with camera, LIDAR, and orange object detection</description>
   <maintainer email="ec24b1069@iiitdm.ac.in">sanat</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
+  <!-- Dependencies for simulation and ROS nodes -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>vision_nodes</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Testing dependencies -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
@@ -16,3 +27,4 @@
     <build_type>ament_python</build_type>
   </export>
 </package>
+

@@ -7,14 +7,18 @@ package_name = '4wd_robot_sim'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=['obstacle_stop'],  # The actual Python package
-    package_dir={'': '.'},       # Python code is directly in this folder
+    packages=[
+        'obstacle_stop',
+        'wall_avoidance',
+
+    ],
+    package_dir={'': '.'},
     data_files=[
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*')),
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
-        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),  # ✅ Added this line
+        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -26,6 +30,8 @@ setup(
     entry_points={
         'console_scripts': [
             'obstacle_stop = obstacle_stop.obstacle_stop:main',
+            'wall_avoidance = wall_avoidance.wall_avoidance:main',
+            # Do not include orange_detector here
         ],
     },
 )

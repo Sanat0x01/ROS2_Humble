@@ -101,6 +101,16 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="black"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
   </link>
 
   <joint name="camera_joint" type="fixed">
@@ -111,11 +121,11 @@
 
   <gazebo reference="camera_link">
     <sensor name="camera_sensor" type="camera">
-      <always_on>true</always_on>
       <update_rate>30.0</update_rate>
+      <always_on>true</always_on>
       <visualize>true</visualize>
       <camera>
-        <horizontal_fov>1.047</horizontal_fov>
+        <horizontal_fov>1.3962634</horizontal_fov>
         <image>
           <width>640</width>
           <height>480</height>
@@ -127,10 +137,9 @@
         </clip>
       </camera>
       <plugin name="gazebo_ros_camera" filename="libgazebo_ros_camera.so">
-        <ros>
-          <remapping>~/image_raw:=/camera/image_raw</remapping>
-        </ros>
         <camera_name>camera</camera_name>
+        <image_topic_name>image_raw</image_topic_name>
+        <camera_info_topic_name>camera_info</camera_info_topic_name>
         <frame_name>camera_link</frame_name>
       </plugin>
     </sensor>
@@ -184,14 +193,12 @@
     </inertial>
   </link>
 
-  <joint name="lidar_joint" type="continuous">
+  <joint name="lidar_joint" type="fixed">
     <parent link="lidar_stand_link"/>
     <child link="lidar_link"/>
     <origin xyz="0 0 0.4" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
   </joint>
 
-  <!-- ✅ 360° LIDAR Configuration -->
   <gazebo reference="lidar_link">
     <sensor name="rotating_lidar" type="ray">
       <update_rate>30.0</update_rate>
@@ -200,10 +207,10 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>720</samples>
+            <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>-3.14</min_angle>
-            <max_angle>3.14</max_angle>
+            <min_angle>-1.57</min_angle>
+            <max_angle>1.57</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -222,7 +229,7 @@
     </sensor>
   </gazebo>
 
-  <!-- Diff Drive Plugin (front wheels only) -->
+  <!-- Diff Drive -->
   <gazebo>
     <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
       <ros>

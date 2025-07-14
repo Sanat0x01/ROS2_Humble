@@ -1,44 +1,179 @@
 <?xml version="1.0" ?>
-<sdf version="1.6">
-  <world name="default">
+<sdf version="1.7">
+  <world name="s_path_two_walls">
 
-    <!-- Ground and lighting -->
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
-    <include>
-      <uri>model://sun</uri>
-    </include>
+    <!-- Lighting -->
+    <light name="sun" type="directional">
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
 
-    <!-- Required plugins for ROS 2 integration -->
-    <plugin name="gazebo_ros_init" filename="libgazebo_ros_init.so"/>
-    <plugin name="factory" filename="libgazebo_ros_factory.so"/>
-
-    <!-- Wall placed 4 meters in front of robot -->
-    <model name="front_wall">
-      <static>true</static>
+    <!-- Ground -->
+    <model name="ground_plane">
+      <static>1</static>
       <link name="link">
-        <pose>4 0 0.5 0 0 0</pose>  <!-- x=4 means wall is 4m in front of robot -->
         <collision name="collision">
           <geometry>
-            <box>
-              <size>0.1 2 1</size>  <!-- thickness=0.1, width=2m, height=1m -->
-            </box>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
           </geometry>
         </collision>
         <visual name="visual">
+          <cast_shadows>0</cast_shadows>
           <geometry>
-            <box>
-              <size>0.1 2 1</size>
-            </box>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
           </geometry>
           <material>
-            <ambient>0.6 0.3 0.3 1</ambient>
-            <diffuse>0.7 0.4 0.4 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
           </material>
         </visual>
       </link>
     </model>
+
+    <!-- Outer Boundary Walls -->
+    <model name="wall_top">
+      <static>true</static>
+      <link name="link">
+        <pose>0 10 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>20 0.5 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.5 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_bottom">
+      <static>true</static>
+      <link name="link">
+        <pose>0 -10 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>20 0.5 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.5 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_left">
+      <static>true</static>
+      <link name="link">
+        <pose>-10 0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.5 20 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.5 20 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_right">
+      <static>true</static>
+      <link name="link">
+        <pose>10 0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.5 20 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.5 20 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- S-Path Two Inner Walls -->
+    <model name="inner_wall_1">
+      <static>true</static>
+      <link name="link">
+        <pose>5 4 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.5 10 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.5 10 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="inner_wall_2">
+      <static>true</static>
+      <link name="link">
+        <pose>-5 -4 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.5 10 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.5 10 1</size></box></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Gray</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Orange Cone -->
+    <model name="orange_cone">
+      <static>true</static>
+      <link name="link">
+        <pose>2 0 0.3 0 0 0</pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Physics -->
+    <gravity>0 0 -9.8</gravity>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
 
   </world>
 </sdf>

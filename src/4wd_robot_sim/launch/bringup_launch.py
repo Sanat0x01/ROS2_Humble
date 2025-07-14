@@ -18,13 +18,19 @@ def generate_launch_description():
 
     return LaunchDescription([
 
-        # 1. Launch Gazebo with the custom world
+        # 1. Launch Gazebo backend
         ExecuteProcess(
-            cmd=['gazebo', '--verbose', world_path, '-s', 'libgazebo_ros_factory.so'],
+            cmd=['gzserver', '--verbose', world_path, '-s', 'libgazebo_ros_factory.so'],
             output='screen'
         ),
 
-        # 2. Joint State Publisher (needed by robot_state_publisher)
+        # 2. Launch Gazebo GUI
+        ExecuteProcess(
+            cmd=['gzclient'],
+            output='screen'
+        ),
+
+        # 3. Joint State Publisher
         Node(
             package='joint_state_publisher',
             executable='joint_state_publisher',
@@ -32,7 +38,7 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # 3. Robot State Publisher with xacro
+        # 4. Robot State Publisher with xacro
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -46,7 +52,7 @@ def generate_launch_description():
             }]
         ),
 
-        # 4. Spawn robot in Gazebo
+        #  5. Spawn Robot in Gazebo
         Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
@@ -59,7 +65,7 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # 5. Teleop Twist Keyboard node (remapped to /teleop_cmd)
+        # 6. Teleop Twist Keyboard
         Node(
             package='teleop_twist_keyboard',
             executable='teleop_twist_keyboard',
@@ -70,12 +76,27 @@ def generate_launch_description():
             ]
         ),
 
-        # 6. Obstacle Stop Node (listens to /teleop_cmd, publishes to /cmd_vel)
+        # 7. Obstacle Stop Node
         Node(
             package='4wd_robot_sim',
             executable='obstacle_stop',
             name='obstacle_stop_node',
             output='screen'
+        ),
+
+        # 8. Wall Avoidance Node
+        Node(
+            package='4wd_robot_sim',
+            executable='wall_avoidance',
+            name='wall_avoidance_node',
+            output='screen'
+        ),
+
+        #  9. Orange Box Detection Node (from vision_nodes)
+        Node(
+            package='vision_nodes',
+            executable='orange_detector',
+            name='orange_detector_node',
+            output='screen'
         )
     ])
-
